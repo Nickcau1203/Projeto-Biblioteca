@@ -1,24 +1,24 @@
 import authorsModel from "../models/authors.model.js";
 
 class AuthorsController { 
-    async getAllBooks(req, res) {
+    async getAllAuthors(req, res) {
         try {
-            const books = await booksModel.findAll();
-            res.status(200).json(books);
+            const authors = await authorsModel.findAll();
+            res.status(200).json(authors);
         } catch (error) {
-          console.error("Erro no controller de livros:", error);
-          res.status(500).json({ error: "Erro ao buscar livros" });
+          console.error("Erro no controller de autores:", error);
+          res.status(500).json({ error: "Erro ao buscar autores" });
         }
     }
-    async createBook(req, res) {
+    async createAuthor(req, res) {
         try {
-            const book = await booksModel.create(req.body);
-            res.status(201).json(book);
+            const author = await authorsModel.create(req.body);
+            res.status(201).json(author);
         } catch (error) {
-            console.error("Erro ao criar livro:", error);
-            res.status(500).json({ error: "Erro ao criar livro" });
+            console.error("Erro ao criar autor:", error);
+            res.status(500).json({ error: "Erro ao criar autor" });
         }
     }
 }
 
-export default new BooksController();
+export default new AuthorsController();
