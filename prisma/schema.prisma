@@ -25,3 +25,15 @@ model Book {
 
   @@map("books")
 }
+
+model Author {
+  id          String @id @default(cuid())
+  name        String
+  books       String
+  birthdate   String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("authors")
+}
